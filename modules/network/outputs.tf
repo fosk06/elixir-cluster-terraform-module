@@ -9,7 +9,7 @@ output "subnet_name" {
 }
 
 output "namespace_name" {
-  value       = google_service_directory_namespace.elixir_application.namespace
+  value       = google_service_directory_namespace.elixir_application.name
   description = "service name"
 }
 

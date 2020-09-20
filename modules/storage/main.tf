@@ -1,5 +1,4 @@
 resource "google_storage_bucket" "artifacts" {
-  description = "GCP bucket to store VM startup/shutdown script and elixir releases"
   name          = var.gcp_bucket_name
   location      = var.gcp_region
   force_destroy = true
