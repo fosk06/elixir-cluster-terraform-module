@@ -16,10 +16,13 @@ provider "google-beta" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "elixir_network" {
-    source = "./modules/network"
-    vpc_name = var.vpc_name
-    subnet_name = var.subnet_name
-    subnet_cidr_range = var.subnet_cidr_range
+  project = var.gcp_project_id
+  region  = var.gcp_region
+  zone    = var.gcp_default_zone
+  source = "./modules/network"
+  vpc_name = var.vpc_name
+  subnet_name = var.subnet_name
+  subnet_cidr_range = var.subnet_cidr_range
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -27,8 +30,12 @@ module "elixir_network" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "elixir_storage" {
-    source = "./modules/storage"
-    gcp_bucket_name = var.gcp_bucket_name
+  project = var.gcp_project_id
+  region  = var.gcp_region
+  zone    = var.gcp_default_zone
+  source = "./modules/storage"
+  gcp_bucket_name = var.gcp_bucket_name
+    
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -36,6 +43,9 @@ module "elixir_storage" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "elixir_service_directory" {
+    project = var.gcp_project_id
+    region  = var.gcp_region
+    zone    = var.gcp_default_zone
     source = "./modules/service_directory"
     namespace_name = var.namespace_name
     service_name = var.service_name
