@@ -7,7 +7,7 @@ resource "google_storage_bucket" "artifacts" {
 
 resource "google_storage_bucket_object" "startup_script" {
   name   = "instance-startup.sh"
-  source = "./instance-startup.sh"
+  source = "${path.module}/instance-startup.sh"
   bucket = google_storage_bucket.artifacts.name
 }
 
