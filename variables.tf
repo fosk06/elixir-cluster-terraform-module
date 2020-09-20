@@ -61,7 +61,7 @@ variable "dns_managed_zone_dns_name" {
 
 variable "gcp_bucket_name" {
   type        = string
-  description = "name of the service directory namespace"
+  description = "name of the gcp bucket"
 }
 
 
