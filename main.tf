@@ -16,9 +16,9 @@ provider "google-beta" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "elixir_network" {
-  project = var.gcp_project_id
-  region  = var.gcp_region
-  zone    = var.gcp_default_zone
+  gcp_project_id = var.gcp_project_id
+  gcp_region  = var.gcp_region
+  gcp_default_zone    = var.gcp_default_zone
   source = "./modules/network"
   vpc_name = var.vpc_name
   subnet_name = var.subnet_name
@@ -30,9 +30,9 @@ module "elixir_network" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "elixir_storage" {
-  project = var.gcp_project_id
-  region  = var.gcp_region
-  zone    = var.gcp_default_zone
+  gcp_project_id = var.gcp_project_id
+  gcp_region  = var.gcp_region
+  gcp_default_zone    = var.gcp_default_zone
   source = "./modules/storage"
   gcp_bucket_name = var.gcp_bucket_name
     
@@ -43,12 +43,12 @@ module "elixir_storage" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "elixir_service_directory" {
-    project = var.gcp_project_id
-    region  = var.gcp_region
-    zone    = var.gcp_default_zone
-    source = "./modules/service_directory"
-    namespace_name = var.namespace_name
-    service_name = var.service_name
-    dns_managed_zone_name = var.dns_managed_zone_name
-    dns_managed_zone_dns_name = var.dns_managed_zone_dns_name
+  gcp_project_id = var.gcp_project_id
+  gcp_region  = var.gcp_region
+  gcp_default_zone    = var.gcp_default_zone
+  source = "./modules/service_directory"
+  namespace_name = var.namespace_name
+  service_name = var.service_name
+  dns_managed_zone_name = var.dns_managed_zone_name
+  dns_managed_zone_dns_name = var.dns_managed_zone_dns_name
 }
