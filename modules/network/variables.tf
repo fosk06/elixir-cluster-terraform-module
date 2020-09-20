@@ -1,7 +1,11 @@
+variable "vpc_name" {
+  type        = string
+  description = "name of the vpc"
+}
+
 variable "subnet_name" {
   type        = string
   description = "name of the subnet"
-  default = "ex-vpc"
 }
 
 variable "subnet_cidr_range" {

@@ -21,7 +21,7 @@
 #   count = 2 // number of instances
 #   name         = "ex-instance-${count.index}"
 #   machine_type = var.machine
-#   zone         = var.default_zone
+#   zone         = var.gcp_default_zone
 #   tags = local.tags
 
 #   boot_disk {
@@ -51,7 +51,7 @@
 #     secret-key-base = local.secret-key-base
 #     service-name = local.service-name
 #     service-namespace = local.service-namespace
-#     region = var.region
+#     region = vargcp_region
 #     hash = var.hash
 #   }
 

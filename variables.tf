@@ -2,16 +2,71 @@
   Project wide variables
 */
 
-variable "region" {
-  default     = "europe-west1"
+################ Global configuration #################################################
+
+variable "gcp_project_id" {
+  description = "gcp project id"
+}
+
+variable "gcp_region" {
   description = "Where the cluster will live"
 }
 
-# https://cloud.google.com/filestore/docs/regions
-variable "default_zone" {
-  default     = "europe-west1-c"
-  description = "Belgium zone will be the default zone"
+variable "gcp_default_zone" {
+  description = "GCP default zone"
 }
+
+
+
+################ Network #################################################
+
+variable "vpc_name" {
+  type        = string
+  description = "name of the vpc"
+}
+
+variable "subnet_name" {
+  type        = string
+  description = "name of the subnet"
+}
+
+variable "subnet_cidr_range" {
+  type        = string
+  description = "ip range of subnetwork"
+}
+
+################ Service directory #################################################
+
+variable "namespace_name" {
+  type        = string
+  description = "name of the service directory namespace"
+}
+
+variable "service_name" {
+  type        = string
+  description = "name of the service  directory service"
+}
+
+variable "dns_managed_zone_name" {
+  type        = string
+  description = "name of the dns managed zone"
+}
+
+variable "dns_managed_zone_dns_name" {
+  type        = string
+  description = "dns hostname record like myapp.com. "
+}
+
+################ Storage #################################################
+
+variable "gcp_bucket_name" {
+  type        = string
+  description = "name of the service directory namespace"
+}
+
+
+
+################ Virtual machines ########################################
 
 variable "image" {
   default     = "debian-cloud/debian-10"
@@ -23,4 +78,3 @@ variable "machine" {
   description = "Machine type to use for APIs"
   default = "n1-standard-1"
 }
-

@@ -1,3 +1,7 @@
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE NETWORK VPC/SUBNET
+# ---------------------------------------------------------------------------------------------------------------------
+
 resource "google_compute_network" "elixir_vpc" {
   name = var.vpc_name
   description = "vpc for elixir instances"
@@ -7,9 +11,14 @@ resource "google_compute_subnetwork" "cluster" {
   name          = var.subnet_name
   description = "subnet for elixir instances"
   ip_cidr_range = var.subnet_cidr_range
-  region        = var.region
+  region        = vargcp_region
   network       = google_compute_network.elixir_vpc.id
 }
+
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE FIREWALL RULES
+# ---------------------------------------------------------------------------------------------------------------------
+
 
 resource "google_compute_firewall" "allow_http" {
   name    = "allow-http"

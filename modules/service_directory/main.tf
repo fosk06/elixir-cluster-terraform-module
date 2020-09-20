@@ -1,7 +1,7 @@
 resource "google_service_directory_namespace" "elixir_application" {
   provider     = google-beta
   namespace_id = var.namespace_name
-  location     = var.region
+  location     = vargcp_region
 
   labels = {
     langage = "elixir"
@@ -14,7 +14,7 @@ resource "google_service_directory_service" "elixir_service" {
   namespace  = google_service_directory_namespace.elixir_application.id
 
   metadata = {
-    region = var.region
+    region = vargcp_region
   }
 }
 
