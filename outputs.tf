@@ -32,9 +32,9 @@ output "subnet_name" {
   description = "subnet name"
 }
 
-output "namespace_name" {
+output "service_namespace" {
   description = "The GCP service directory namespace name"
-  value       = module.elixir_network.namespace_name
+  value       = module.elixir_network.service_namespace
 }
 
 output "service_name" {

@@ -8,9 +8,9 @@ output "subnet_name" {
   description = "vpc name"
 }
 
-output "namespace_name" {
+output "service_namespace" {
   value       = google_service_directory_namespace.elixir_application.name
-  description = "service name"
+  description = "service namespace name"
 }
 
 output "service_name" {
