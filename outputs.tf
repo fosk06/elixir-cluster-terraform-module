@@ -17,24 +17,6 @@ output "shutdown_script_url" {
   description = "shutdown script url"
 }
 
-# ---------------------------------------------------------------------------------------------------------------------
-# SERVICE DIRECTORY OUTPUTS
-# ---------------------------------------------------------------------------------------------------------------------
-
-output "namespace_name" {
-  description = "The GCP service directory namespace name"
-  value       = module.elixir_service_directory.namespace_name
-}
-
-output "service_name" {
-  description = "The private hostname where apps will be available (DNS A record)"
-  value       = module.elixir_service_directory.service_name
-}
-
-output "dns_name" {
-  description = "The private hostname where apps will be available (DNS A record)"
-  value       = module.elixir_service_directory.dns_name
-}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # NETWORK OUTPUTS
@@ -48,4 +30,19 @@ output "vpc_name" {
 output "subnet_name" {
   value       = module.elixir_network.subnet_name
   description = "subnet name"
+}
+
+output "namespace_name" {
+  description = "The GCP service directory namespace name"
+  value       = module.elixir_network.namespace_name
+}
+
+output "service_name" {
+  description = "The private hostname where apps will be available (DNS A record)"
+  value       = module.elixir_network.service_name
+}
+
+output "dns_name" {
+  description = "The private hostname where apps will be available (DNS A record)"
+  value       = module.elixir_network.dns_name
 }
