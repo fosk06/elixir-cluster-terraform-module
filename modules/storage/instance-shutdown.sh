@@ -21,12 +21,14 @@ variableExport() {
 }
 
 # export usefull metadatas from instance metadata
+
+variableExport "HOME" "/app"
 variableExport "INSTANCE_NAME" `getVmAttribute "name"`
 variableExport "SERVICE_NAMESPACE" `getVmAttribute "attributes/service-namespace"`
-variableExport "RELEASE_NAME" `getVmAttribute "attributes/release-name"`
 variableExport "SERVICE_NAME" `getVmAttribute "attributes/service-name"`
 variableExport "REGION" `getVmAttribute "attributes/region"`
 variableExport "PROJECT" `getProjectAttribute "project-id"`
+variableExport "RELEASE_NAME" `ls -t ${HOME}/bin | head -n 1`
 
 
 # create the gcp service directory endpoint

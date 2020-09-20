@@ -31,8 +31,6 @@ variableExport "INSTANCE_NAME" `getVmAttribute "name"`
 variableExport "INTERNAL_IP" `getVmAttribute "network-interfaces/0/ip"`
 variableExport "SERVICE_NAMESPACE" `getVmAttribute "attributes/service-namespace"`
 variableExport "RELEASE_URL" `getVmAttribute "attributes/release-url"`
-variableExport "RELEASE_NAME" `getVmAttribute "attributes/release-name"`
-variableExport "RELEASE_VERSION" `getVmAttribute "attributes/release-version"`
 variableExport "SECRET_KEY_BASE" `getVmAttribute "attributes/secret-key-base"`
 variableExport "SERVICE_NAME" `getVmAttribute "attributes/service-name"`
 variableExport "REGION" `getVmAttribute "attributes/region"`
@@ -41,9 +39,13 @@ variableExport "NODE_NAME" "${SERVICE_NAME}@${INTERNAL_IP}"
 
 
 # copy release from bucket untar the release and clean
-gsutil cp ${RELEASE_URL} ${HOME}
-tar -zxf ${RELEASE_NAME}-${RELEASE_VERSION}.tar.gz
-rm ${RELEASE_NAME}-${RELEASE_VERSION}.tar.gz
+gsutil cp ${RELEASE_URL} ${HOME}/release.tar.gz
+# untar and delete archive
+tar -zxf release.tar.gz
+rm release.tar.gz
+# extract the name of the binary
+variableExport "RELEASE_NAME" `ls -t ${HOME}/bin | head -n 1`
+# make the binary executable
 chmod 755 ${HOME}/bin/${RELEASE_NAME}
 
 
