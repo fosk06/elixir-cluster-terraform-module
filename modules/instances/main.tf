@@ -1,18 +1,18 @@
 # locals {
-#   release-url = "${google_storage_bucket.ex_build_artifacts.url}/gcp-0.1.0.tar.gz"
+#   release-url = "${google_storage_bucket.artifacts.url}/gcp-0.1.0.tar.gz"
 #   release-name = "gcp"
 #   release-version = "0.1.0"
-#   startup-script-url = "${google_storage_bucket.ex_build_artifacts.url}/${google_storage_bucket_object.startup_script.name}"
-#   shutdown-script-url = "${google_storage_bucket.ex_build_artifacts.url}/${google_storage_bucket_object.shutdown_script.name}"
+#   startup-script-url = "${google_storage_bucket.artifacts.url}/${google_storage_bucket_object.startup_script.name}"
+#   shutdown-script-url = "${google_storage_bucket.artifacts.url}/${google_storage_bucket_object.shutdown_script.name}"
 #   secret-key-base = "XmOqDnVm3BYT2ymDmpSUf6JEvNzUXrNhIE5z9HqyxSuLPoHfzOcLZzDaJKyH9ib1"
 #   service-name = basename(google_service_directory_service.api.name)
-#   service-namespace = basename(google_service_directory_namespace.prestashop.name)
+#   service-namespace = basename(google_service_directory_namespace.mycompany.name)
 
 #   # VM tags for firewall rules
 #   tags = setunion(
-#     google_compute_firewall.ex_epmd.source_tags,
-#     google_compute_firewall.ex_http.source_tags,
-#     google_compute_firewall.ex_https.source_tags
+#     google_compute_firewall.allow_epmd.source_tags,
+#     google_compute_firewall.allow_http.source_tags,
+#     google_compute_firewall.allow_https.source_tags
 #   )
 # }
 
@@ -56,7 +56,7 @@
 #   }
 
 #   service_account {
-#     email = "api-v2-storage@prestashop-data-integration.iam.gserviceaccount.com"
+#     email = "api-v2-storage@mycompany-data-integration.iam.gserviceaccount.com"
 #     scopes = ["userinfo-email","cloud-platform"]
 #   }
 

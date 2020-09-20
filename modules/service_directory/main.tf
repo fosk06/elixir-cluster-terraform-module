@@ -1,6 +1,6 @@
-resource "google_service_directory_namespace" "prestashop" {
+resource "google_service_directory_namespace" "mycompany" {
   provider     = google-beta
-  namespace_id = "prestashop"
+  namespace_id = "mycompany"
   location     = var.region
 
   labels = {
@@ -11,7 +11,7 @@ resource "google_service_directory_namespace" "prestashop" {
 resource "google_service_directory_service" "api" {
   provider   = google-beta
   service_id = "api"
-  namespace  = google_service_directory_namespace.prestashop.id
+  namespace  = google_service_directory_namespace.mycompany.id
 
   metadata = {
     stage  = "staging"
@@ -19,11 +19,11 @@ resource "google_service_directory_service" "api" {
   }
 }
 
-resource "google_dns_managed_zone" "prestashop_app" {
+resource "google_dns_managed_zone" "mycompany_app" {
   provider = google-beta
-  name        = "prestasho-app"
-  dns_name    = "prestashop.app."
-  description = "prestashop apps DNS"
+  name        = "mycompany-app"
+  dns_name    = "mycompany.app."
+  description = "mycompany apps DNS"
   labels = {
     langage = "elixir"
   }
@@ -37,7 +37,7 @@ resource "google_dns_managed_zone" "prestashop_app" {
   }
   service_directory_config {
     namespace {
-      namespace_url = google_service_directory_namespace.prestashop.id
+      namespace_url = google_service_directory_namespace.mycompany.id
     }
   }
   
