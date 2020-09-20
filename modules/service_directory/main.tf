@@ -1,6 +1,6 @@
-resource "google_service_directory_namespace" "mycompany" {
+resource "google_service_directory_namespace" "elixir_application" {
   provider     = google-beta
-  namespace_id = "mycompany"
+  namespace_id = var.namespace_name
   location     = var.region
 
   labels = {
@@ -8,22 +8,21 @@ resource "google_service_directory_namespace" "mycompany" {
   }
 }
 
-resource "google_service_directory_service" "api" {
+resource "google_service_directory_service" "elixir_service" {
   provider   = google-beta
-  service_id = "api"
-  namespace  = google_service_directory_namespace.mycompany.id
+  service_id = var.service_name
+  namespace  = google_service_directory_namespace.elixir_application.id
 
   metadata = {
-    stage  = "staging"
     region = var.region
   }
 }
 
-resource "google_dns_managed_zone" "mycompany_app" {
+resource "google_dns_managed_zone" "elixir_application_app" {
   provider = google-beta
-  name        = "mycompany-app"
-  dns_name    = "mycompany.app."
-  description = "mycompany apps DNS"
+  name        = var.dns_managed_zone_name
+  dns_name    = var.dns_managed_zone_dns_name
+  description = "elixir application apps DNS"
   labels = {
     langage = "elixir"
   }
@@ -32,12 +31,12 @@ resource "google_dns_managed_zone" "mycompany_app" {
   
   private_visibility_config {
     networks {
-      network_url = google_compute_network.ex_vpc.id
+      network_url = google_compute_network.elixir_vpc.id
     }
   }
   service_directory_config {
     namespace {
-      namespace_url = google_service_directory_namespace.mycompany.id
+      namespace_url = google_service_directory_namespace.elixir_application.id
     }
   }
   
