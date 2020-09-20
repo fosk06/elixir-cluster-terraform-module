@@ -7,7 +7,7 @@ resource "google_compute_network" "elixir_vpc" {
   description = "vpc for elixir instances"
 }
 
-resource "google_compute_subnetwork" "cluster" {
+resource "google_compute_subnetwork" "elixir_cluster" {
   name          = var.subnet_name
   description = "subnet for elixir instances"
   ip_cidr_range = var.subnet_cidr_range
