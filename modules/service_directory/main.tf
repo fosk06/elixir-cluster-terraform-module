@@ -8,7 +8,7 @@ resource "google_service_directory_namespace" "elixir_application" {
   }
 }
 
-resource "google_service_directory_service" "elixir_service" {
+resource "google_service_directory_service" "elixir_application" {
   provider   = google-beta
   service_id = var.service_name
   namespace  = google_service_directory_namespace.elixir_application.id
@@ -18,7 +18,7 @@ resource "google_service_directory_service" "elixir_service" {
   }
 }
 
-resource "google_dns_managed_zone" "elixir_application_app" {
+resource "google_dns_managed_zone" "elixir_application" {
   provider = google-beta
   name        = var.dns_managed_zone_name
   dns_name    = var.dns_managed_zone_dns_name
