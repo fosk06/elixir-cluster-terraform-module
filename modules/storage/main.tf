@@ -13,6 +13,6 @@ resource "google_storage_bucket_object" "startup_script" {
 
 resource "google_storage_bucket_object" "shutdown_script" {
   name   = "instance-shutdown.sh"
-  source = "./instance-shutdown.sh"
+  source = "${path.module}/instance-shutdown.sh"
   bucket = google_storage_bucket.artifacts.name
 }
