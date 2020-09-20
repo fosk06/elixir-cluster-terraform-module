@@ -41,11 +41,11 @@ output "dns_name" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 output "vpc_name" {
-  value       = module.vpc_name
+  value       = module.elixir_network.vpc_name
   description = "vpc name"
 }
 
 output "subnet_name" {
-  value       = module.subnet_name
+  value       = module.elixir_network.subnet_name
   description = "subnet name"
 }
