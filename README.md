@@ -9,3 +9,4 @@ It creates the following ressources on GCP:
 - Service directory (beta feature of GCP)
 - DNS managed zone
 - bucket to store elixir releases and virtual machine scripts
+- startup script and shutdown script for VM
