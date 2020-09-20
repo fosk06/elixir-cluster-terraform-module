@@ -26,18 +26,22 @@ variable "subnet_cidr_range" {
   default = "10.2.0.0/16"
 }
 
-
-output "namespace_name" {
-  value       = google_service_directory_namespace.elixir_application.namespace
-  description = "service name"
+variable "namespace_name" {
+  type        = string
+  description = "name of the service directory namespace"
 }
 
-output "service_name" {
-  value       = google_service_directory_service.elixir_application.name
-  description = "service name"
+variable "service_name" {
+  type        = string
+  description = "name of the service  directory service"
 }
 
-output "dns_name" {
-  value       = google_dns_managed_zone.elixir_application.dns_name
-  description = "DNS zone name"
+variable "dns_managed_zone_name" {
+  type        = string
+  description = "name of the dns managed zone"
+}
+
+variable "dns_managed_zone_dns_name" {
+  type        = string
+  description = "dns hostname record like myapp.com. "
 }
