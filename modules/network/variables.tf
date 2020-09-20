@@ -13,4 +13,3 @@ variable "subnet_cidr_range" {
   description = "ip range of subnetwork"
   default = "10.2.0.0/16"
 }
-

@@ -22,3 +22,8 @@ output "service_name" {
   value       = basename(google_service_directory_service.api.name)
   description = "service name"
 }
+
+output "dns_name" {
+  description = "The private hostname where apps will be available (DNS A record)"
+  value       = module.elixir_service_directory.dns_name
+}
