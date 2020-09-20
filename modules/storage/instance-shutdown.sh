@@ -1,13 +1,13 @@
 #!/bin/sh
 set -ex
 
-# get vm attribute
+# get vm attribute from GCP instance metadata
 getVmAttribute() {
     path=$1; shift;
     echo `curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/${path}`
 }
 
-# get project attributes
+# get project attributes from GCP instance metadata
 getProjectAttribute() {
     path=$1; shift;
     echo `curl -s -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/project/${path}`
@@ -20,7 +20,7 @@ variableExport() {
     eval "export ${attribute}=${value}"
 }
 
-# get usefull metadatas from instance
+# export usefull metadatas from instance metadata
 variableExport "INSTANCE_NAME" `getVmAttribute "name"`
 variableExport "SERVICE_NAMESPACE" `getVmAttribute "attributes/service-namespace"`
 variableExport "RELEASE_NAME" `getVmAttribute "attributes/release-name"`
