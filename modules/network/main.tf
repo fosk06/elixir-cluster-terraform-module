@@ -11,7 +11,7 @@ resource "google_compute_subnetwork" "elixir_cluster" {
   name          = var.subnet_name
   description = "subnet for elixir instances"
   ip_cidr_range = var.subnet_cidr_range
-  region        = vargcp_region
+  region        = var.gcp_region
   network       = google_compute_network.elixir_vpc.id
 }
 

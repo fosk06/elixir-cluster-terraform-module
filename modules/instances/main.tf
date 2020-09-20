@@ -51,7 +51,7 @@
 #     secret-key-base = local.secret-key-base
 #     service-name = local.service-name
 #     service-namespace = local.service-namespace
-#     region = vargcp_region
+#     region = var.gcp_region
 #     hash = var.hash
 #   }
 
