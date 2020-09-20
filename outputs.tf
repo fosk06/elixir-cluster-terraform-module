@@ -46,3 +46,18 @@ output "dns_name" {
   description = "The private hostname where apps will be available (DNS A record)"
   value       = module.elixir_network.dns_name
 }
+
+output "http_network_tags" {
+  value       = module.http_network_tags
+  description = "http tags"
+}
+
+output "https_network_tags" {
+  value       = module.https_network_tags
+  description = "https tags"
+}
+
+output "epmd_network_tags" {
+  value       = module.epmd_network_tags
+  description = "epmd tags"
+}
