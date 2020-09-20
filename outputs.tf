@@ -48,16 +48,16 @@ output "dns_name" {
 }
 
 output "http_network_tags" {
-  value       = module.http_network_tags
+  value       = module.elixir_network.http_network_tags
   description = "http tags"
 }
 
 output "https_network_tags" {
-  value       = module.https_network_tags
+  value       = module.elixir_network.https_network_tags
   description = "https tags"
 }
 
 output "epmd_network_tags" {
-  value       = module.epmd_network_tags
+  value       = module.elixir_network.epmd_network_tags
   description = "epmd tags"
 }
