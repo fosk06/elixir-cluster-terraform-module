@@ -41,3 +41,32 @@ module "elixir_storage" {
   gcp_bucket_name = var.gcp_bucket_name
     
 }
+
+resource "google_service_account" "elixir_cluster_service_account" {
+  account_id   = "elixir_cluster"
+  display_name = "elixir cluster"
+}
+
+data "google_iam_policy" "elixir_cluster_service_account" {
+
+  binding {
+    role =  "roles/logging.logWriter"
+    members = [
+      "serviceAccount:${google_service_account.elixir_cluster_service_account.email}",
+    ]
+  }
+
+  binding {
+    role =  "roles/storage.objectAdmin"
+    members = [
+      "serviceAccount:${google_service_account.elixir_cluster_service_account.email}",
+    ]
+  }
+
+  binding {
+    role =  "roles/servicedirectory.editor"
+    members = [
+      "serviceAccount:${google_service_account.elixir_cluster_service_account.email}",
+    ]
+  }
+}

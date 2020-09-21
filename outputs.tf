@@ -71,3 +71,9 @@ output "epmd_network_tags" {
   value       = module.elixir_network.epmd_network_tags
   description = "epmd tags"
 }
+
+
+output "service_account_email" {
+  value       = google_service_account.elixir_cluster_service_account.email
+  description = "service_account_email"
+}
