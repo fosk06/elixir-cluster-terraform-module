@@ -67,7 +67,7 @@ data "google_iam_policy" "elixir_cluster_service_account" {
 resource "google_service_account_iam_member" "k8s_cluster_service_account_storage_object_viewer" {
   service_account_id = "${google_service_account.elixir_cluster_service_account.account_id}"
   role        = "roles/logging.logWriter"
-  member      = "serviceAccount:${google_service_account.elixir_cluster_service_account.email}",
+  member      = "serviceAccount:${google_service_account.elixir_cluster_service_account.email}"
 }
 
 resource "google_service_account_iam_policy" "elixir_cluster_iam" {
