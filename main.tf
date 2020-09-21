@@ -56,7 +56,7 @@ resource "google_service_account_iam_member" "elixir_cluster_logger_iam" {
 
 resource "google_service_account_iam_member" "elixir_cluster_storage_iam" {
   service_account_id = google_service_account.elixir_cluster_service_account.id
-  role        =  "roles/storage.objectAdmin"
+  role        =  "roles/storage.objectViewer"
   member      = "serviceAccount:${google_service_account.elixir_cluster_service_account.email}"
 }
 
