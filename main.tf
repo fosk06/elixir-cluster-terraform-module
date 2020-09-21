@@ -42,6 +42,11 @@ module "elixir_storage" {
     
 }
 
+# ---------------------------------------------------------------------------------------------------------------------
+# CREATE IAM PERMISSIONS AND SERVICE ACCOUNT
+# ---------------------------------------------------------------------------------------------------------------------
+
+
 resource "google_service_account" "elixir_cluster_service_account" {
   project = var.gcp_project_id
   account_id   = "elixir-cluster"
