@@ -43,7 +43,7 @@ resource "google_compute_firewall" "allow_https" {
 }
 
 resource "google_compute_firewall" "allow_epmd" {
-  name    = "ex-allow-epmd"
+  name    = "allow-epmd"
   description = "allow epmd default port and erlang port distribution"
   network = google_compute_network.elixir_vpc.name
   allow {

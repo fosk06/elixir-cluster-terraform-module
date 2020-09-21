@@ -48,30 +48,20 @@ resource "google_service_account" "elixir_cluster_service_account" {
   display_name = "elixir cluster"
 }
 
-data "google_iam_policy" "elixir_cluster_service_account" {
-
-  binding {
-    role =  "roles/storage.objectAdmin"
-    members = [
-      "serviceAccount:${google_service_account.elixir_cluster_service_account.email}",
-    ]
-  }
-
-  binding {
-    role =  "roles/servicedirectory.editor"
-    members = [
-      "serviceAccount:${google_service_account.elixir_cluster_service_account.email}",
-    ]
-  }
-}
-
 resource "google_service_account_iam_member" "elixir_cluster_logger_iam" {
   service_account_id = google_service_account.elixir_cluster_service_account.id
   role        = "roles/logging.logWriter"
   member      = "serviceAccount:${google_service_account.elixir_cluster_service_account.email}"
 }
 
-resource "google_service_account_iam_policy" "elixir_cluster_iam" {
+resource "google_service_account_iam_member" "elixir_cluster_storage_iam" {
   service_account_id = google_service_account.elixir_cluster_service_account.id
-  policy_data        = data.google_iam_policy.elixir_cluster_service_account.policy_data
+  role        =  "roles/storage.objectAdmin"
+  member      = "serviceAccount:${google_service_account.elixir_cluster_service_account.email}"
+}
+
+resource "google_service_account_iam_member" "elixir_cluster_servicedirectory_iam" {
+  service_account_id = google_service_account.elixir_cluster_service_account.id
+  role        =  "roles/servicedirectory.editor"
+  member      = "serviceAccount:${google_service_account.elixir_cluster_service_account.email}"
 }
