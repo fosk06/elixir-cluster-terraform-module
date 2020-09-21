@@ -27,6 +27,11 @@ output "vpc_name" {
   description = "vpc name"
 }
 
+output "vpc_link" {
+  value       = module.elixir_network.vpc_link
+  description = "vpc link"
+}
+
 output "subnet_name" {
   value       = module.elixir_network.subnet_name
   description = "subnet name"

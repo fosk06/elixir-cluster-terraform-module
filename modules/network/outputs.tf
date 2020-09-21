@@ -3,6 +3,11 @@ output "vpc_name" {
   description = "vpc name"
 }
 
+output "vpc_link" {
+  value       = google_compute_network.elixir_vpc.self_link
+  description = "vpc link"
+}
+
 output "subnet_name" {
   value       = google_compute_subnetwork.elixir_cluster.name
   description = "subnet name"
