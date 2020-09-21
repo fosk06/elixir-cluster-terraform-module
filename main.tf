@@ -43,6 +43,7 @@ module "elixir_storage" {
 }
 
 resource "google_service_account" "elixir_cluster_service_account" {
+  project = var.gcp_project_id
   account_id   = "elixir-cluster"
   display_name = "elixir cluster"
 }
@@ -65,12 +66,14 @@ data "google_iam_policy" "elixir_cluster_service_account" {
 }
 
 resource "google_service_account_iam_member" "k8s_cluster_service_account_storage_object_viewer" {
+  project = var.gcp_project_id
   service_account_id = "${google_service_account.elixir_cluster_service_account.account_id}"
   role        = "roles/logging.logWriter"
   member      = "serviceAccount:${google_service_account.elixir_cluster_service_account.email}"
 }
 
 resource "google_service_account_iam_policy" "elixir_cluster_iam" {
+  project = var.gcp_project_id
   service_account_id = google_service_account.elixir_cluster_service_account.name
   policy_data        = data.google_iam_policy.elixir_cluster_service_account.policy_data
 }
