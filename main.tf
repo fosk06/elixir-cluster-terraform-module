@@ -43,7 +43,7 @@ module "elixir_storage" {
 }
 
 resource "google_service_account" "elixir_cluster_service_account" {
-  account_id   = "elixir_cluster"
+  account_id   = "elixir-cluster"
   display_name = "elixir cluster"
 }
 
