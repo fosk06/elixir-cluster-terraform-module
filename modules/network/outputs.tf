@@ -5,7 +5,12 @@ output "vpc_name" {
 
 output "subnet_name" {
   value       = google_compute_subnetwork.elixir_cluster.name
-  description = "vpc name"
+  description = "subnet name"
+}
+
+output "subnet_link" {
+  value       = google_compute_subnetwork.elixir_cluster.self_link
+  description = "subnet self link"
 }
 
 output "service_namespace" {
