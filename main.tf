@@ -72,6 +72,6 @@ resource "google_service_account_iam_member" "elixir_cluster_logger_iam" {
 }
 
 resource "google_service_account_iam_policy" "elixir_cluster_iam" {
-  service_account_id = google_service_account.elixir_cluster_service_account.name
+  service_account_id = google_service_account.elixir_cluster_service_account.id
   policy_data        = data.google_iam_policy.elixir_cluster_service_account.policy_data
 }
