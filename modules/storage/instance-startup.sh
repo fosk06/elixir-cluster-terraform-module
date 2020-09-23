@@ -34,6 +34,7 @@ variableExport "RELEASE_URL" `getVmAttribute "attributes/release-url"`
 variableExport "SECRET_KEY_BASE" `getVmAttribute "attributes/secret-key-base"`
 variableExport "SERVICE_NAME" `getVmAttribute "attributes/service-name"`
 variableExport "REGION" `getVmAttribute "attributes/region"`
+variableExport "CLUSTER_HOSTNAME" `getVmAttribute "attributes/cluster-hostname"`
 variableExport "PROJECT" `getProjectAttribute "project-id"`
 variableExport "NODE_NAME" "${SERVICE_NAME}@${INTERNAL_IP}"
 
