@@ -71,6 +71,9 @@ module "elixir_compute" {
     module.elixir_network.https_network_tags,
     module.elixir_network.epmd_network_tags
   )
+  min_replicas    = var.autoscaler_min_replicas
+  max_replicas    = var.autoscaler_max_replicas
+  cooldown_period = var.autoscaler_cooldown_period
 
 }
 

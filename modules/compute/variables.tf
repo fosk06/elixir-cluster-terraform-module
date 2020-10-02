@@ -51,7 +51,40 @@ variable session_affinity {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# Elixir application variables
+# AUTO SCALER VARIABLES
+# ---------------------------------------------------------------------------------------------------------------------
+
+variable default_autoscaler {
+  type        = bool
+  description = "create default autoscaler or not"
+}
+
+variable default_autoscaler_target_cpu {
+  type        = number
+  description = "target CPU to scale up the cluster"
+  default = 0.7
+}
+
+variable autoscaler_min_replicas {
+  type        = number
+  description = "minimum number of vm in the pool"
+  default = 1
+}
+
+variable autoscaler_max_replicas {
+  type        = number
+  description = "maximum number of vm in the pool"
+  default = 5
+}
+
+variable autoscaler_cooldown_period {
+  type        = number
+  description = "time to wait for VM availability"
+  default = 30
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
+# ELIXIR APPLICATION VARIABLES
 # ---------------------------------------------------------------------------------------------------------------------
 
 

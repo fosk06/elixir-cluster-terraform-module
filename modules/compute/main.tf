@@ -100,3 +100,26 @@ resource "google_compute_instance_group_manager" "elixir_cluster" {
 
   depends_on = [google_compute_instance_template.elixir_application]
 }
+
+# ------------------------------------------------------------------------------
+# CREATE AUTOSCALER
+# ------------------------------------------------------------------------------
+
+resource "google_compute_autoscaler" "elixir_cluster" {
+  count = var.default_autoscaler ? 1 : 0
+  provider = google-beta
+  name   = "${var.service_name}-autoscaler"
+  zone = var.gcp_default_zone
+  target = google_compute_instance_group_manager.elixir_cluster.id
+
+  autoscaling_policy {
+    min_replicas    = var.autoscaler_min_replicas
+    max_replicas    = var.autoscaler_max_replicas
+    cooldown_period = var.autoscaler_cooldown_period
+
+    cpu_utilization {
+      target = var.default_autoscaler_target_cpu
+    }
+    
+  }
+}
