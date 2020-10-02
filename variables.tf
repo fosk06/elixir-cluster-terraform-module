@@ -84,6 +84,12 @@ variable "disk_type" {
   default = "pd-ssd"
 }
 
+variable session_affinity {
+  type        = string
+  description = "session affinity for target pool"
+  default = "CLIENT_IP"
+}
+
 variable "disk_size" {
   type        = number
   description = "size of the disk"

@@ -44,6 +44,12 @@ variable "vm_preemptible" {
   default = false
 }
 
+variable session_affinity {
+  type        = string
+  description = "session affinity for target pool"
+  default = "CLIENT_IP"
+}
+
 # ---------------------------------------------------------------------------------------------------------------------
 # Elixir application variables
 # ---------------------------------------------------------------------------------------------------------------------

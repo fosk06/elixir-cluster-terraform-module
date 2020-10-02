@@ -53,6 +53,7 @@ module "elixir_compute" {
   source = "./modules/compute"
   image = var.image
   machine_type = var.machine_type
+  session_affinity = var.session_affinity
   disk_type = var.disk_type
   disk_size = var.disk_size
   vm_preemptible = var.vm_preemptible

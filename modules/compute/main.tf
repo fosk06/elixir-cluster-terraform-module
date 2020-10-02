@@ -54,3 +54,14 @@ resource "google_compute_instance_template" "template" {
   }
   
 }
+
+# ------------------------------------------------------------------------------
+# CREATE TARGET POOL
+# ------------------------------------------------------------------------------
+
+resource "google_compute_target_pool" "elixir_cluster" {
+  provider         = google-beta
+  name             = "${var.service_name}-target-pool"
+  session_affinity = var.session_affinity
+  # health_checks = [google_compute_http_health_check.default.self_link] # legacy health check
+}
