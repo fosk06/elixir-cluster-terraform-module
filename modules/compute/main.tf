@@ -23,7 +23,7 @@ resource "google_compute_instance_template" "template" {
     auto_delete  = true
     source_image = "debian-cloud/debian-10"
     disk_type = var.disk_type
-    disk_size_gb = var.ssd_size
+    disk_size_gb = var.disk_size
   }
 
   network_interface {
