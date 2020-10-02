@@ -72,8 +72,41 @@ variable "image" {
   description = "kind of the image for the vm"
 }
 
-variable "machine" {
+variable "machine_type" {
   type        = string
   description = "Machine type to use for APIs"
   default = "n1-standard-1"
+}
+
+variable "disk_type" {
+  type        = string
+  description = "size of the disk"
+  default = "pd-ssd"
+}
+
+variable "disk_size" {
+  type        = number
+  description = "size of the disk"
+  default = 50
+}
+
+variable "vm_preemptible" {
+  type        = bool
+  description = "are vm preamtible"
+  default = false
+}
+
+variable "release_url" {
+  type        = string
+  description = "release of the URL"
+}
+
+variable "elixir_secret_key_base" {
+  type        = string
+  description = "secret key to deploy and run elixir application"
+}
+
+variable "elixir_application_name" {
+  type        = string
+  description = "name of your elixir application"
 }

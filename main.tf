@@ -43,6 +43,26 @@ module "elixir_storage" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
+# CREATE COMPUTE RESSOURCES
+# ---------------------------------------------------------------------------------------------------------------------
+
+module "elixir_compute" {
+  gcp_project_id = var.gcp_project_id
+  gcp_region  = var.gcp_region
+  gcp_default_zone    = var.gcp_default_zone
+  source = "./modules/compute"
+  image = var.image
+  machine_type = var.machine_type
+  disk_type = var.disk_type
+  disk_size = var.disk_size
+  vm_preemptible = var.vm_preemptible
+  release_url = var.release_url
+  elixir_secret_key_base = var.elixir_secret_key_base
+  elixir_application_name = var.elixir_application_name
+  
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
 # CREATE IAM PERMISSIONS AND SERVICE ACCOUNT
 # ---------------------------------------------------------------------------------------------------------------------
 
