@@ -105,8 +105,3 @@ variable "elixir_secret_key_base" {
   type        = string
   description = "secret key to deploy and run elixir application"
 }
-
-variable "elixir_application_name" {
-  type        = string
-  description = "name of your elixir application"
-}

@@ -60,10 +60,3 @@ variable "elixir_secret_key_base" {
   description = "secret key to deploy and run elixir application"
   default = "bOweqFstyZamEyoS8FgijJAgXbny7xod3UeV+YmEuKeAfE1M901MDuIxvDu00dYl"
 }
-
-variable "elixir_application_name" {
-  type        = string
-  description = "name of your elixir application"
-  default = "api"
-}
-
