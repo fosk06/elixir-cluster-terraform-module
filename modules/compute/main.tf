@@ -8,11 +8,11 @@ locals {
   cluster_hostname = trimsuffix(module.elixir_network.dns_name,".")
 
   # VM tags for firewall rules
-  tags = setunion(
-    module.elixir_network.http_network_tags,
-    module.elixir_network.https_network_tags,
-    module.elixir_network.epmd_network_tags
-  )
+  # tags = setunion(
+  #   module.elixir_network.http_network_tags,
+  #   module.elixir_network.https_network_tags,
+  #   module.elixir_network.epmd_network_tags
+  # )
 }
 
 # ------------------------------------------------------------------------------
@@ -22,7 +22,8 @@ locals {
 resource "google_compute_instance_template" "template" {
   name_prefix  = local.service_name
   machine_type = var.machine_type
-  tags = local.tags
+  # tags = local.tags
+  tags = []
   labels = {
     environment = terraform.workspace
     langage = "elixir"
