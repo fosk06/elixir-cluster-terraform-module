@@ -20,14 +20,14 @@ locals {
 # ------------------------------------------------------------------------------
 
 resource "google_compute_instance_template" "template" {
-  name_prefix  = var.elixir_application_name
+  name_prefix  = local.service_name
   machine_type = var.machine_type
   tags = local.tags
   labels = {
     environment = terraform.workspace
     langage = "elixir"
   }
-  instance_description = "VM hosting the ${var.elixir_application_name} application"
+  instance_description = "VM hosting the ${local.service_name} application"
   can_ip_forward = true
 
   scheduling {
