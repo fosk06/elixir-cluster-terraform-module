@@ -18,12 +18,12 @@ resource "google_compute_instance_template" "template" {
     automatic_restart = !var.vm_preemptible
   }
 
-  boot_disk {
-    initialize_params {
-      image = var.image
-      type = var.disk_type
-      size = var.ssd_size
-    }
+  disk {
+    boot = true
+    auto_delete  = true
+    source_image = "debian-cloud/debian-10"
+    disk_type = var.disk_type
+    disk_size_gb = var.ssd_size
   }
 
   network_interface {
