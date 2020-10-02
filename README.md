@@ -10,3 +10,6 @@ It creates the following ressources on GCP:
 - DNS managed zone
 - bucket to store elixir releases and virtual machine scripts
 - startup script and shutdown script for VM
+- VM template
+- VM target pool using the VM template
+- (optional) default autoscaler
