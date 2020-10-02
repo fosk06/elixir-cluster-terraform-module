@@ -73,9 +73,9 @@ module "elixir_compute" {
   )
   default_autoscaler = var.default_autoscaler
   default_autoscaler_target_cpu = var.default_autoscaler_target_cpu
-  min_replicas    = var.autoscaler_min_replicas
-  max_replicas    = var.autoscaler_max_replicas
-  cooldown_period = var.autoscaler_cooldown_period
+  autoscaler_min_replicas    = var.autoscaler_min_replicas
+  autoscaler_max_replicas    = var.autoscaler_max_replicas
+  autoscaler_cooldown_period = var.autoscaler_cooldown_period
 
 }
 
