@@ -60,3 +60,12 @@ variable "elixir_secret_key_base" {
   description = "secret key to deploy and run elixir application"
   default = "bOweqFstyZamEyoS8FgijJAgXbny7xod3UeV+YmEuKeAfE1M901MDuIxvDu00dYl"
 }
+
+variable startup_script_url {}
+variable shutdown_script_url {}
+variable service_name {}
+variable service_namespace {}
+variable cluster_hostname {}
+variable tags {}
+variable vpc_name {}
+variable service_account_email {}

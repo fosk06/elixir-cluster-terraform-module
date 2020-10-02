@@ -58,7 +58,19 @@ module "elixir_compute" {
   vm_preemptible = var.vm_preemptible
   release_url = var.release_url
   elixir_secret_key_base = var.elixir_secret_key_base
-  
+  startup_script_url = module.elixir_storage.startup_script_url
+  shutdown_script_url = module.elixir_storage.shutdown_script_url
+  service_name = basename(module.elixir_network.service_name)
+  service_namespace = basename(module.elixir_network.service_namespace)
+  cluster_hostname = trimsuffix(module.elixir_network.dns_name,".")
+  vpc_name = module.elixir_network.vpc_name
+  service_account_email = google_service_account.elixir_cluster_service_account.email
+  tags = setunion(
+    module.elixir_network.http_network_tags,
+    module.elixir_network.https_network_tags,
+    module.elixir_network.epmd_network_tags
+  )
+
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
