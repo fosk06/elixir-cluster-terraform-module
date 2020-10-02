@@ -58,7 +58,6 @@ module "elixir_compute" {
   vm_preemptible = var.vm_preemptible
   release_url = var.release_url
   elixir_secret_key_base = var.elixir_secret_key_base
-  elixir_application_name = var.elixir_application_name
   
 }
 
