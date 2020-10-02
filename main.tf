@@ -57,7 +57,7 @@ module "elixir_compute" {
   disk_size = var.disk_size
   vm_preemptible = var.vm_preemptible
   release_url = var.release_url
-  elixir_secret_key_base = var.elixir_secret_key_base
+  secret_key_base = var.secret_key_base
   startup_script_url = module.elixir_storage.startup_script_url
   shutdown_script_url = module.elixir_storage.shutdown_script_url
   service_name = basename(module.elixir_network.service_name)
