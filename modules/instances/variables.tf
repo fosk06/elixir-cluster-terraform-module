@@ -39,7 +39,7 @@ variable "disk_size" {
 }
 
 variable "vm_preemptible" {
-  type        = boolean
+  type        = bool
   description = "are vm preamtible"
   default = false
 }
