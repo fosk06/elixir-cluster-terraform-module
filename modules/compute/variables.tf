@@ -55,10 +55,9 @@ variable "release_url" {
   default = "n1-standard-1"
 }
 
-variable "elixir_secret_key_base" {
+variable "secret_key_base" {
   type        = string
   description = "secret key to deploy and run elixir application"
-  default = "bOweqFstyZamEyoS8FgijJAgXbny7xod3UeV+YmEuKeAfE1M901MDuIxvDu00dYl"
 }
 
 variable startup_script_url {}
