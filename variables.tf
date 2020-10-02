@@ -101,7 +101,7 @@ variable "release_url" {
   description = "release of the URL"
 }
 
-variable "elixir_secret_key_base" {
+variable "secret_key_base" {
   type        = string
   description = "secret key to deploy and run elixir application"
 }
