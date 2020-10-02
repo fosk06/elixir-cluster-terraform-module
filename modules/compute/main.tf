@@ -49,7 +49,7 @@ resource "google_compute_instance_template" "template" {
   }
 
   service_account {
-    email = google_service_account.elixir_cluster_service_account.email
+    email = var.service_account_email
     scopes = ["userinfo-email","cloud-platform"]
   }
   
