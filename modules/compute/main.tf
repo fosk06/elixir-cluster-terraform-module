@@ -2,8 +2,8 @@
 # CREATE VM TEMPLATE
 # ------------------------------------------------------------------------------
 
-resource "google_compute_instance_template" "template" {
-  name_prefix  = var.service_name
+resource "google_compute_instance_template" "elixir_application" {
+  name_prefix  = "${var.service_name}-"
   machine_type = var.machine_type
   tags = var.tags
   labels = {
@@ -64,4 +64,39 @@ resource "google_compute_target_pool" "elixir_cluster" {
   name             = "${var.service_name}-target-pool"
   session_affinity = var.session_affinity
   # health_checks = [google_compute_http_health_check.default.self_link] # legacy health check
+}
+
+# ------------------------------------------------------------------------------
+# CREATE INSTANCE GROUP MANAGER
+# ------------------------------------------------------------------------------
+resource "google_compute_instance_group_manager" "elixir_cluster" {
+  name = "${var.service_name}-group-manager"
+
+  base_instance_name = var.service_name
+  zone = var.gcp_default_zone
+
+  version {
+    instance_template = google_compute_instance_template.elixir_application.self_link
+  }
+  target_pools = [google_compute_target_pool.elixir_cluster.self_link]
+  # auto_healing_policies {
+  #   health_check = google_compute_health_check.default.self_link
+  #   initial_delay_sec = 300
+  # }
+  
+  named_port {
+    name = "http"
+    port = 80
+  }
+  named_port {
+    name = "https"
+    port = 443
+  }
+
+  named_port {
+    name = "epmd"
+    port = 4369
+  }
+
+  depends_on = [google_compute_instance_template.elixir_application]
 }
