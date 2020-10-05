@@ -48,7 +48,7 @@ resource "google_compute_firewall" "allow_epmd" {
   network = google_compute_network.elixir_vpc.name
   allow {
     protocol = "tcp"
-    ports    = ["4369", "4710-4720"]
+    ports    = ["4369", var.node_distribution_port]
   }
   source_tags = ["erlang-node"]
 }

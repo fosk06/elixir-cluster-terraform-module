@@ -53,6 +53,12 @@ variable "dns_managed_zone_dns_name" {
   description = "dns hostname record like myapp.com. "
 }
 
+variable "node_distribution_port" {
+  type        = string
+  description = "erlang node distribution port"
+  default = "9999"
+}
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 # STORAGE VARIABLES
