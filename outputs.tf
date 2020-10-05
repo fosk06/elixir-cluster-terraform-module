@@ -79,7 +79,6 @@ output "service_account_email" {
 }
 
 output "node_distribution_port" {
-  type        = string
   description = "erlang node distribution port"
   value = var.node_distribution_port
 }
