@@ -77,3 +77,9 @@ output "service_account_email" {
   value       = google_service_account.elixir_cluster_service_account.email
   description = "service_account_email"
 }
+
+output "node_distribution_port" {
+  type        = string
+  description = "erlang node distribution port"
+  value = var.node_distribution_port
+}
